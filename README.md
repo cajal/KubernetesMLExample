@@ -12,7 +12,7 @@ Code for this tutorial: https://github.com/cajal/KubernetesMLExample.git
 3. Upload the docker image either to Docker-Hub publicly or to our docker system (Needs to be setup)
 4. Create datajoint-credentials and github-credentials secrets for the pods that are to be deploy
 5. Create the job yaml file referencing the datajoint-credentials and github-credientials secrets and any other stuff needed like volumes via hostpath
-6. Get the .yaml file to at-kubemaster1 somehow, either through github, or just copy and paste, then start it via kubectl create -f <yaml file name> to deploy the job
+6. Get the .yaml file to at-kubemaster1 somehow, either through github, or just copy and paste, then start it via kubectl create -f file_name.yaml to deploy the job
 
 
 # Step 1)
@@ -43,8 +43,8 @@ The steps are:
 
 1. git clone https://github.com/cajal/KubernetesMLExample.git
 2. cd KubernetesMLExample/
-3. docker build —tag=<Docker_Hub_Username>/kubernetes_ml_example:latest .
-4. docker push <Docker_Hub_Username>/kubernetes_ml_example:latest
+3. docker build —tag=Docker_Hub_Username/kubernetes_ml_example:latest .
+4. docker push Docker_Hub_Username/kubernetes_ml_example:latest
 
 1-3
 
@@ -63,7 +63,7 @@ Example:
 ![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584457388_image.png)
 
 
-For our use case, we will need two sets of credentials, one for datajoint database server and the other for github login to clone private repository. Both of these yaml file should be made on at-kubemaster1 as you will be running it shortly after creating them to create the secrets
+For our use case, we will need two sets of credentials, one for datajoint database server and the other for github login to clone private repository. Both of these yaml file should be made on at-kubemaster1 as you will be running it shortly after creating them to create the secrets. **THESE YAML FILES SHOULD NEVER BE UPLOADED GITHUB or ANYWHERE OF THAT MATTER!!!**
 
 DataJoint:
 
@@ -75,7 +75,7 @@ GitHub:
 ![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584770041_image.png)
 
 
-After creating these files, use kubectl create -f <file_name.yaml> to create both secrets.
+After creating these files, use kubectl create -f file_name.yaml to create both secrets.
 Upon successful creation of both secrets, you should confirm by using kubectl get secrets
 
 ![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584929176_image.png)
@@ -99,7 +99,7 @@ https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument
 
 For this part, you can place the yaml file you created in part 5 in your github respo, or just ssh in at-kubemaster1 and make a new yaml file via nano and paste the content over.
 
-After that you can create the job via kubectl create - f <yaml file name>
+After that you can create the job via kubectl create - f file_name.yaml
 
 ![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562585411330_image.png)
 
