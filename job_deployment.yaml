@@ -15,4 +15,3 @@ spec:
           limits:
             nvidia.com/gpu: 1 # requesting 1 GPUs
         command: ["ls"]
-        args: [""]
