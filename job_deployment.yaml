@@ -3,8 +3,8 @@ kind: Job # This tells kubernetes what kind of class it is working with
 metadata:
   name: resnet-benchmark-job # Name of the Job
 spec:
-  completions: 1
-  parallelism: 1
+  completions: 100
+  parallelism: 25
   template: # Pod Templete
     spec:
       restartPolicy: OnFailure # Options are Always, OnFailure, and Never.
