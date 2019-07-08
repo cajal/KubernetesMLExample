@@ -18,17 +18,17 @@ spec:
         - name: DJ_HOST
           valueFrom:
             secretKeyRef:
-              name: datajoint_credientials
+              name: datajoint-credientials
               key: DJ_HOST
         - name: DJ_USER
           valueFrom:
             secretKeyRef:
-              name: datajoint_credientials
+              name: datajoint-credientials
               key: DJ_USER
         - name: DJ_PASS
           valueFrom:
             secretKeyRef:
-              name: datajoint_credientials
+              name: datajoint-credientials
               key: DJ_PASS  
         command: ["python3"]
         args: ["resnet_benchmark/resnet_benchmark.py"]
