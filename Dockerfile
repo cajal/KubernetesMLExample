@@ -1,6 +1,10 @@
 FROM nvidia/cuda:10.0-runtime-ubuntu18.04
 LABEL maintainer="Synicix"
 
+# Github username and password
+ARG username
+ARG password
+
 # Ubuntu OS Requirements
 RUN apt-get -y update
 RUN apt-get -y install python3.6
@@ -18,5 +22,5 @@ RUN pip3 install https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp36-c
 RUN pip3 install git+https://www.github.com/nvidia/apex
 
 # Clone the GitHub respitory and set workdir to that
-RUN git clone git@github.com:cajal/KubernetesMLExample.git
+RUN git clone https://${username}:${password}@github.com/cajal/KubernetesMLExample.git
 WORKDIR /KubernetesMLExample
