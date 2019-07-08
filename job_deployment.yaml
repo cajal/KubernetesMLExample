@@ -14,5 +14,5 @@ spec:
         resources:
           limits:
             nvidia.com/gpu: 1 # requesting 1 GPUs
-        command: ["python3"]
-        args: ["/resnet_benchmark/resnet_benchmark.py"]
+        command: ["ls"]
+        args: [""]
