@@ -3,8 +3,8 @@ kind: Job # This tells kubernetes what kind of class it is working with
 metadata:
   name: resnet-benchmark-job # Name of the Job
 spec:
-  completions: 100
-  parallelism: 25
+  completions: 1
+  parallelism: 1
   template: # Pod Templete
     spec:
       restartPolicy: OnFailure # Options are Always, OnFailure, and Never.
@@ -30,6 +30,16 @@ spec:
           valueFrom:
             secretKeyRef:
               name: datajoint-credientials
-              key: DJ_PASS  
-        command: ["python3"]
-        args: ["resnet_benchmark/resnet_benchmark.py"]
+              key: DJ_PASS
+        - name: GITHUB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: github-credientials
+              key: GITHUB_USERNAME
+        - name: GITHUB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: github-credientials
+              key: GITHUB_PASSWORD
+        command: ["bash/bin"]
+        args: ["git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/cajal/KubernetesMLExample.git", "python3 resnet_benchmark/resnet_benchmark.py"]
