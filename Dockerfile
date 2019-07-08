@@ -21,6 +21,6 @@ RUN pip3 install https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp36-c
 # Apex FP16 pytorch library
 RUN pip3 install git+https://www.github.com/nvidia/apex
 
-# Make work_space folder
+# Make WorkSpace folder
 RUN mkdir /WorkSpace
 WORKDIR /WorkSpace
