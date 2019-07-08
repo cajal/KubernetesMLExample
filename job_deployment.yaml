@@ -8,13 +8,13 @@ spec:
   template: # Pod Templete
     spec:
       restartPolicy: OnFailure # Options are Always, OnFailure, and Never.
+      hostNetwork: true
       containers:
       - name: kubernetes-ml-example # Container name (Can be set to whatever)
         image: synicix/kubernetes_ml_example:latest # Docker Image hosted on Docker Hub
         resources:
           limits:
             nvidia.com/gpu: 1 # requesting 1 GPUs
-        hostNetwork: true
         env:
         - name: DJ_HOST
           valueFrom:
