@@ -1,7 +1,7 @@
 apiVersion: batch/v1 # Jobs Default K8 API
 kind: Job # This tells kubernetes what kind of class it is working with
 metadata:
-  name: resnet_benchmark-job # Name of the Job
+  name: resnet-benchmark-job # Name of the Job
 spec:
   completions: 1
   parallelism: 1
