@@ -18,5 +18,5 @@ RUN pip3 install https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp36-c
 RUN pip3 install git+https://www.github.com/nvidia/apex
 
 # Clone the GitHub respitory and set workdir to that
-RUN git clone https://github.com/cajal/KubernetesMLExample.git
+RUN git clone git@github.com:cajal/KubernetesMLExample.git
 WORKDIR /KubernetesMLExample
