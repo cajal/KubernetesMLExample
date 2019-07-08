@@ -41,5 +41,5 @@ spec:
             secretKeyRef:
               name: github-credientials
               key: GITHUB_PASSWORD
-        command: ["/bin/bash"]
-        args: ["git clone https://$(GITHUB_USERNAME):$(GITHUB_PASSWORD)@github.com/cajal/KubernetesMLExample.git; python3 resnet_benchmark/resnet_benchmark.py"]
+        command: ["/bin/sh"]
+        args: ["-c", "git clone https://$(GITHUB_USERNAME):$(GITHUB_PASSWORD)@github.com/cajal/KubernetesMLExample.git; python3 resnet_benchmark/resnet_benchmark.py"]
