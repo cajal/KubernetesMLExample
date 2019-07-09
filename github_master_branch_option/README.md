@@ -1,4 +1,4 @@
-# Github Branch Option
+# Github Master Branch Option
 For this option, the moment the user push a commit to the user's master branch that the pod is referencing, any new pod launched from that moment on will clone the new code instead of the old one. Due to this is recommended for the user to make use of Git branches where the master is only for deployment ready code and another branch for development
 
 

@@ -16,4 +16,4 @@ The reason for the two options have mostly deals with the way code should be han
 For the docker image build option, everytime the deployment ready code is to be updated, the user must rebuild their image and uploaded it to their Docker Registry before the changes are picked up by new pods.
 As for the Github Master Branch option, the point of update will be the master branch, thus any new commits apply to the master branches will cause all new pods being launched to use the new code base.
 
-Our recommendation is with the docker image build option if the user is not familiar with github branches, as there is pretty good chance that if the users pushes commit to wrong branch, it will ruin the current job reliability.
+Our recommendation is with the docker image build option if the user is not familiar with github branches, as there is pretty good chance that if the users pushes a commit to wrong branch, it might screw up the current job.
