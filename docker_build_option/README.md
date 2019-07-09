@@ -38,22 +38,22 @@ For this example we will be using my spaceheater machine and docker-hub. This as
 The steps are: 
 
 1. git clone https://github.com/cajal/KubernetesMLExample.git
-2. cd KubernetesMLExample/
-3. docker build --build-arg GITHUB_USERNAME=\<your_username> --build-arg GITHUB_PASSWORD=\<your_password> —tag=Docker_Hub_Username/kubernetes_ml_example:latest .
-4. docker push Docker_Hub_Username/kubernetes_ml_example:latest
+2. cd KubernetesMLExample/docker_build_option
+3. docker build --build-arg GITHUB_USERNAME=\<your_username> --build-arg GITHUB_PASSWORD=\<your_password> —tag=\<Docker_Hub_Username>/kubernetes_ml_example_docker:latest .
+4. docker push \<Docker_Hub_Username>/kubernetes_ml_example_docker:latest
 
 1-3
 
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562583227122_image.png)
+![](https://paper-attachments.dropbox.com/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562711150983_image.png)
 
 
 4
 
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562583931017_image.png)
+![](https://paper-attachments.dropbox.com/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562711264800_image.png)
 
 # Step 4)
 
-K8 secrets requires the value to be encoded in base64, thus the user must feed the user's desired strings into the command echo -n “string_goes_here” | base64  and copy the result to the keys in the secrets .yaml file
+K8 secrets requires the value to be encoded in base64, thus the user must feed the user's desired strings into the command echo -n \<string_to_encode> | base64  and copy the result to the keys in the secrets .yaml file
 Example:
 
 ![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584457388_image.png)
@@ -66,13 +66,8 @@ DataJoint:
 ![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584686370_image.png)
 
 
-GitHub:
-
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584770041_image.png)
-
-
-After creating these files, use kubectl create -f file_name.yaml to create both secrets.
-Upon successful creation of both secrets, the user should confirm by using kubectl get secrets
+After creating that file, use kubectl create -f file_name.yaml to create the secrets.
+Upon successful creation of the secret, the user should confirm by using kubectl get secrets
 
 ![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584929176_image.png)
 

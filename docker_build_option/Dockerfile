@@ -25,4 +25,4 @@ RUN pip3 install git+https://www.github.com/nvidia/apex
 RUN mkdir /WorkSpace
 WORKDIR /WorkSpace
 
-RUN git clone https://$(GITHUB_USERNAME):$(GITHUB_PASSWORD)@github.com/cajal/KubernetesMLExample.git
+RUN git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/cajal/KubernetesMLExample.git
