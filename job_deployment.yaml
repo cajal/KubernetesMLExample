@@ -42,4 +42,4 @@ spec:
               name: github-credientials
               key: GITHUB_PASSWORD
         command: ["/bin/sh"]
-        args: ["-c", "git clone https://$(GITHUB_USERNAME):$(GITHUB_PASSWORD)@github.com/cajal/KubernetesMLExample.git; python3 resnet_benchmark/resnet_benchmark.py"] # sh commands to clone and run python script
+        args: ["-c", "git clone https://$(GITHUB_USERNAME):$(GITHUB_PASSWORD)@github.com/cajal/KubernetesMLExample.git; python3 KubernetesMLExample/resnet_benchmark/resnet_benchmark.py"] # sh commands to clone and run python script
