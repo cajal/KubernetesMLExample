@@ -1,6 +1,10 @@
 FROM nvidia/cuda:10.0-runtime-ubuntu18.04
 LABEL maintainer="Synicix"
 
+# Github username and password
+ARG GITHUB_USERNAME
+ARG GITHUB_PASSWORD
+
 # Ubuntu OS Requirements
 RUN apt-get -y update
 RUN apt-get -y install python3.6
@@ -20,3 +24,5 @@ RUN pip3 install git+https://www.github.com/nvidia/apex
 # Make WorkSpace folder
 RUN mkdir /WorkSpace
 WORKDIR /WorkSpace
+
+RUN git clone https://$(GITHUB_USERNAME):$(GITHUB_PASSWORD)@github.com/cajal/KubernetesMLExample.git

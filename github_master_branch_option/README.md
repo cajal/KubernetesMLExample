@@ -1,10 +1,10 @@
 # Github Branch Option
-For this option, the moment the user push a commit to the userr master branch that the pod is referencing, any new pod launched from that moment on will clone the new code instead of the old one. Due to this is recommended for the user to make use of Git branches where the master is only for deployment ready code and another branch for development
+For this option, the moment the user push a commit to the user's master branch that the pod is referencing, any new pod launched from that moment on will clone the new code instead of the old one. Due to this is recommended for the user to make use of Git branches where the master is only for deployment ready code and another branch for development
 
 
 # Overview of workflow
-1. Develop and test the userr application via docker on the userr workstation
-2. Once the application is ready for mass deployment, build the docker image base off of the userr Dockerfile
+1. Develop and test the user's application via docker on the user's workstation
+2. Once the application is ready for mass deployment, build the docker image base off of the user's Dockerfile
 3. Upload the docker image either to Docker-Hub publicly or to our docker system (Needs to be setup)
 4. Create datajoint-credentials and github-credentials secrets for the pods that are to be deploy
 5. Create the job yaml file referencing the datajoint-credentials and github-credientials secrets and any other stuff needed like volumes via hostpath
@@ -14,15 +14,15 @@ For this option, the moment the user push a commit to the userr master branch th
 # Step 1)
 ## Overview:
 
-This part is really up to the user on how the user want to approach development of the userr code, as the only requirement is that the user code working directory must be package into a docker container. 
+This part is really up to the user on how the user want to approach development of the user's code, as the only requirement is that the user code working directory must be package into a docker container. 
 
-Another way is to write a pod .yaml deployment, and deploy it every time the user update the code. In my opinion this is a bit too much work for development, would just prefer the user throw it into a jupyter-notebook book docker image base on the userr work station and work from there.
+Another way is to write a pod .yaml deployment, and deploy it every time the user update the code. In my opinion this is a bit too much work for development, would just prefer the user throw it into a jupyter-notebook book docker image base on the user's work station and work from there.
 
 
 # Step 2)
 ## Overview:
 
-The Docker image in this case, should be a bare minimum of what is needed for the userr code to be run, AKA libraries and dependencies. The code will be clone after the container creation via commands pass from the .yaml file that we will go over later.
+The Docker image in this case, should be a bare minimum of what is needed for the user's code to be run, AKA libraries and dependencies. The code will be clone after the container creation via commands pass from the .yaml file that we will go over later.
 
 Here is the Dockerfile for this example:
 
@@ -33,7 +33,7 @@ Here is the Dockerfile for this example:
 
 In order to build and upload the image above, we would recommend the user do it on the user's workstation machine, as at-kubemaster1 disable docker access for all users as we don’t want anyone messing around with the containers on there.
 
-For this example we will be using my spaceheater machine and docker-hub. This assumes that the user already have a docker login and already setup the userr docker login on the userr workstation machine by using docker login command
+For this example we will be using my spaceheater machine and docker-hub. This assumes that the user already have a docker login and already setup the user's docker login on the user's workstation machine by using docker login command
 
 The steps are: 
 
@@ -53,7 +53,7 @@ The steps are:
 
 # Step 4)
 
-K8 secrets requires the value to be encoded in base64, thus the user must feed the userr desired strings into the command echo -n “string_goes_here” | base64  and copy the result to the keys in the secrets .yaml file
+K8 secrets requires the value to be encoded in base64, thus the user must feed the user's desired strings into the command echo -n “string_goes_here” | base64  and copy the result to the keys in the secrets .yaml file
 Example:
 
 ![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584457388_image.png)
@@ -93,7 +93,7 @@ https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument
 
 # Step 6)
 
-For this part, the user can place the yaml file the user created in part 5 in the userr github respo, or just ssh in at-kubemaster1 and make a new yaml file via nano and paste the content over.
+For this part, the user can place the yaml file the user created in part 5 in the user's github respo, or just ssh in at-kubemaster1 and make a new yaml file via nano and paste the content over.
 
 After that the user can create the job via kubectl create - f file_name.yaml
 
@@ -103,7 +103,7 @@ After that the user can create the job via kubectl create - f file_name.yaml
 
 # To deploy updates:
 
-Lets say the user have a new version of the userr code the user want to deploy to the cluster. For this the steps are pretty straight forward. All the user need it is to push the new version of the userr code up, delete the current job and relaunch it. The reason why this works is that we setup the pod to clone the repository each time, thus fetching the newest version of the userr code. No need to rebuild the image which takes forever.
+Lets say the user have a new version of the user's code the user want to deploy to the cluster. For this the steps are pretty straight forward. All the user need it is to push the new version of the user's code up, delete the current job and relaunch it. The reason why this works is that we setup the pod to clone the repository each time, thus fetching the newest version of the user's code. No need to rebuild the image which takes forever.
 
 
 # Mounting scratch and stores
