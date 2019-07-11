@@ -26,7 +26,7 @@ The Docker image in this case, should be a bare minimum of what is needed for th
 
 Here is the Dockerfile for this example:
 
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562582715415_image.png)
+![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562582715415_image.png)
 
 # Step 3)
 ## Overview
