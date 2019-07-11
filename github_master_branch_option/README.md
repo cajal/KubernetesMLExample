@@ -44,43 +44,43 @@ The steps are:
 
 1-3
 
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562583227122_image.png)
+![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562583227122_image.png)
 
 
 4
 
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562583931017_image.png)
+![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562583931017_image.png)
 
 # Step 4)
 
 K8 secrets requires the value to be encoded in base64, thus the user must feed the user's desired strings into the command echo -n “string_goes_here” | base64  and copy the result to the keys in the secrets .yaml file
 Example:
 
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584457388_image.png)
+![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584457388_image.png)
 
 
 For our use case, we will need two sets of credentials, one for datajoint database server and the other for github login to clone private repository. Both of these yaml file should be made on at-kubemaster1 as the user will be running it shortly after creating them to create the secrets. **THESE YAML FILES SHOULD NEVER BE UPLOADED GITHUB or ANYWHERE OF THAT MATTER!!!**
 
 DataJoint:
 
-![](https://paper-attachments.dropbox.com/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562807432298_image.png)
+![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562807432298_image.png)
 
 
 GitHub:
 
-![](https://paper-attachments.dropbox.com/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562807419930_image.png)
+![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562807419930_image.png)
 
 
 After creating these files, use kubectl create -f file_name.yaml to create both secrets.
 Upon successful creation of both secrets, the user should confirm by using kubectl get secrets
 
-![](https://paper-attachments.dropbox.com/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562807528986_image.png)
+![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562807528986_image.png)
 
 # Step 5)
 
 Now we can create the job.yaml file, in this case it is name job_deployment.yaml in the github repository.
 
-![](https://paper-attachments.dropbox.com/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562808166112_image.png)
+![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562808166112_image.png)
 
 
 If the user don’t understand some parts of it, I would recommend the user read through the docs about K8 secrets and commands
@@ -97,7 +97,7 @@ For this part, the user can place the yaml file the user created in part 5 in th
 
 After that the user can create the job via kubectl create - f file_name.yaml
 
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562585411330_image.png)
+![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562585411330_image.png)
 
 
 
