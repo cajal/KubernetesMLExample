@@ -63,18 +63,18 @@ For our use case, we will need two sets of credentials, one for datajoint databa
 
 DataJoint:
 
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584686370_image.png)
+![](https://paper-attachments.dropbox.com/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562807432298_image.png)
 
 
 GitHub:
 
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584770041_image.png)
+![](https://paper-attachments.dropbox.com/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562807419930_image.png)
 
 
 After creating these files, use kubectl create -f file_name.yaml to create both secrets.
 Upon successful creation of both secrets, the user should confirm by using kubectl get secrets
 
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584929176_image.png)
+![](https://paper-attachments.dropbox.com/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562807528986_image.png)
 
 # Step 5)
 
