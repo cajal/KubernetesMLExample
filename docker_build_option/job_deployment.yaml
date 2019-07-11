@@ -19,17 +19,17 @@ spec:
         - name: DJ_HOST
           valueFrom:
             secretKeyRef:
-              name: datajoint-credientials
+              name: datajoint-credentials
               key: DJ_HOST
         - name: DJ_USER
           valueFrom:
             secretKeyRef:
-              name: datajoint-credientials
+              name: datajoint-credentials
               key: DJ_USER
         - name: DJ_PASS
           valueFrom:
             secretKeyRef:
-              name: datajoint-credientials
+              name: datajoint-credentials
               key: DJ_PASS
         command: ["/bin/sh"]
         args: ["-c", "python3 KubernetesMLExample/resnet_benchmark/resnet_benchmark.py"] # sh commands to clone and run python script

@@ -19,27 +19,27 @@ spec:
         - name: DJ_HOST
           valueFrom:
             secretKeyRef:
-              name: datajoint-credientials
+              name: datajoint-credentials
               key: DJ_HOST
         - name: DJ_USER
           valueFrom:
             secretKeyRef:
-              name: datajoint-credientials
+              name: datajoint-credentials
               key: DJ_USER
         - name: DJ_PASS
           valueFrom:
             secretKeyRef:
-              name: datajoint-credientials
+              name: datajoint-credentials
               key: DJ_PASS
         - name: GITHUB_USERNAME
           valueFrom:
             secretKeyRef:
-              name: github-credientials
+              name: github-credentials
               key: GITHUB_USERNAME
         - name: GITHUB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: github-credientials
+              name: github-credentials
               key: GITHUB_PASSWORD
         command: ["/bin/sh"]
         args: ["-c", "git clone https://$(GITHUB_USERNAME):$(GITHUB_PASSWORD)@github.com/cajal/KubernetesMLExample.git; python3 KubernetesMLExample/resnet_benchmark/resnet_benchmark.py"] # sh commands to clone and run python script
