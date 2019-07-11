@@ -80,7 +80,7 @@ Upon successful creation of both secrets, the user should confirm by using kubec
 
 Now we can create the job.yaml file, in this case it is name job_deployment.yaml in the github repository.
 
-![](https://paper-attachments.dropbox.com/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562585039300_image.png)
+![](https://paper-attachments.dropbox.com/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562808166112_image.png)
 
 
 If the user don’t understand some parts of it, I would recommend the user read through the docs about K8 secrets and commands
