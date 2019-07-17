@@ -31,7 +31,7 @@ Here is the Dockerfile for this example:
 # Step 3)
 ## Overview
 
-In order to build and upload the image above, we would recommend the user do it on the user's workstation machine, as at-kubemaster1 disable docker access for all users as we don’t want anyone messing around with the containers on there.
+In order to build and upload the image above, we would recommend the user do it on the user's workstation machine, as at-kubemaster1 disable docker access for all users as we donï¿½t want anyone messing around with the containers on there.
 
 For this example we will be using my spaceheater machine and docker-hub. This assumes that the user already have a docker login and already setup the user's docker login on the user's workstation machine by using docker login command
 
@@ -39,7 +39,7 @@ The steps are:
 
 1. git clone https://github.com/cajal/KubernetesMLExample.git
 2. cd KubernetesMLExample/
-3. docker build —tag=Docker_Hub_Username/kubernetes_ml_example:latest .
+3. docker build ï¿½tag=Docker_Hub_Username/kubernetes_ml_example:latest .
 4. docker push Docker_Hub_Username/kubernetes_ml_example:latest
 
 1-3
@@ -53,7 +53,7 @@ The steps are:
 
 # Step 4)
 
-K8 secrets requires the value to be encoded in base64, thus the user must feed the user's desired strings into the command echo -n “string_goes_here” | base64  and copy the result to the keys in the secrets .yaml file
+K8 secrets requires the value to be encoded in base64, thus the user must feed the user's desired strings into the command echo -n ï¿½string_goes_hereï¿½ | base64  and copy the result to the keys in the secrets .yaml file
 Example:
 
 ![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584457388_image.png)
@@ -71,7 +71,7 @@ GitHub:
 ![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562807419930_image.png)
 
 
-After creating these files, use kubectl create -f file_name.yaml to create both secrets.
+After creating these files, use kubectl create -f \<file_name.yaml> to create both secrets.
 Upon successful creation of both secrets, the user should confirm by using kubectl get secrets
 
 ![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562807528986_image.png)
@@ -83,7 +83,7 @@ Now we can create the job.yaml file, in this case it is name job_deployment.yaml
 ![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_807C4A1ACAEC7AEF0E446757A97CF7C3E28D540808B6336A2DC463F7C20352FD_1562808166112_image.png)
 
 
-If the user don’t understand some parts of it, I would recommend the user read through the docs about K8 secrets and commands
+If the user donï¿½t understand some parts of it, I would recommend the user read through the docs about K8 secrets and commands
 
 https://kubernetes.io/docs/concepts/configuration/secret/
 
