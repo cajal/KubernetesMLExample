@@ -53,7 +53,7 @@ The steps are:
 
 # Step 4)
 
-K8 secrets requires the value to be encoded in base64, thus the user must feed the user's desired strings into the command echo -n �string_goes_here� | base64  and copy the result to the keys in the secrets .yaml file
+K8 secrets requires the value to be encoded in base64, thus the user must feed the user's desired strings into the command echo -n \<string_goes_here> | base64  and copy the result to the keys in the secrets .yaml file
 Example:
 
 ![](https://github.com/cajal/KubernetesMLExample/blob/master/pictures/s_1658B3DA7264DC308DFF541AD5AF9864461502441102D46F84C863C6F8C40A45_1562584457388_image.png)
