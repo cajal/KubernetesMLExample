@@ -3,7 +3,6 @@ kind: Job # This tells kubernetes what kind of class it is working with
 metadata:
   name: resnet-benchmark-job # Name of the Job
 spec:
-  completions: 100
   parallelism: 25
   template: # Pod Templete
     spec:
