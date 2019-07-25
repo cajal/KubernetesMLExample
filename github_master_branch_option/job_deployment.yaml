@@ -13,12 +13,19 @@ spec:
         operator: "Equal"
         value: "true"
         effect: "NoSchedule"
+      volumes:
+      - name: scratch07
+        hostPath:
+          path: /mnt/scratch07
       containers:
       - name: kubernetes-ml-example # Container name (Can be set to whatever)
         image: synicix/kubernetes_ml_example:latest # Docker Image hosted on Docker Hub
         resources:
           limits:
             nvidia.com/gpu: 1 # requesting 1 GPUs
+        volumeMounts:
+        - name: scratch07
+          mountPath: /mnt/scratch07
         env:
         - name: DJ_HOST
           valueFrom:
