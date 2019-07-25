@@ -8,6 +8,11 @@ spec:
     spec:
       restartPolicy: OnFailure # Options are Always, OnFailure, and Never.
       hostNetwork: true # This option will allow the pod to use the host network for internet access
+      tolerations:
+      - key: "gpu"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
       containers:
       - name: kubernetes-ml-example # Container name (Can be set to whatever)
         image: synicix/kubernetes_ml_example:latest # Docker Image hosted on Docker Hub
