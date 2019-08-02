@@ -54,4 +54,4 @@ spec:
               key: GITHUB_PASSWORD
         command: ["/bin/bash"] # Entry point for the container
         args: ["-c", "git clone https://$(GITHUB_USERNAME):$(GITHUB_PASSWORD)@github.com/cajal/KubernetesMLExample.git \
-        && python3 KubernetesMLExample/resnet_benchmark/resnet_benchmark.py"] # sh commands to clone and run python script
+        && python3 -u KubernetesMLExample/resnet_benchmark/resnet_benchmark.py"] # sh commands to clone and run python script
