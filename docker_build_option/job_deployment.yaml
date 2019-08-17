@@ -3,18 +3,42 @@ kind: Job # This tells kubernetes what kind of class it is working with
 metadata:
   name: resnet-benchmark-job # Name of the Job
 spec:
-  parallelism: 25
+  parallelism: 1 # Run one instance of Resnet benchmark DO NOT CHANGE THIS AS THIS IS TUTORIAL JOB (IT WILL GET IN THE WAY OF OUR ACTUAL WORK)
   template: # Pod Templete
     spec:
-      restartPolicy: OnFailure # Options are Always, OnFailure, and Never.
+      restartPolicy: OnFailure # Options are OnFailure, and Never.
       hostNetwork: true # This option will allow the pod to use the host network for internet access
-      containers:
+      priorityClassName: low-priority # Set the pod to be low priority meaning it will be evicted by default and higher prioity pods
+      tolerations: # This toleration allows the pod to be schedule onto gpu-only pod machines, remove this if you are not using gpu
+      - key: "gpu"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
+      volumes: # Example volume mounting for scratch07
+      - name: scratch07 # name for the volume to be reference in container volumeMounts
+        hostPath:
+          path: /mnt/scratch07 # Directory on the host machine to be mounted
+      affinity: # Affinity to select certain nodes with 11GB, 12GB, or 24GB memory
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution: # Require nodes to have this label
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: gpu_mem_size # Target label is gpu_mem_size
+                operator: In # Key must have one of the following values
+                values:
+                - 11GB
+                - 12GB
+                - 24GB
+      containers: # Container Level
       - name: kubernetes-ml-example # Container name (Can be set to whatever)
-        image: synicix/kubernetes_ml_example_docker:latest # Docker Image hosted on Docker Hub
+        image: synicix/kubernetes_ml_example:latest # Docker Image hosted on Docker Hub
         resources:
           limits:
             nvidia.com/gpu: 1 # requesting 1 GPUs
-        env:
+        volumeMounts: # Container reference to volumes define above
+        - name: scratch07 # Name of the volume define above
+          mountPath: /mnt/scratch07 # Location of where to mount it in the container
+        env: # This section refers to secrets created under the user namespace and set them as enviorment variables
         - name: DJ_HOST
           valueFrom:
             secretKeyRef:
@@ -30,5 +54,5 @@ spec:
             secretKeyRef:
               name: datajoint-credentials
               key: DJ_PASS
-        command: ["/bin/sh"]
-        args: ["-c", "python3 KubernetesMLExample/resnet_benchmark/resnet_benchmark.py"] # sh commands to clone and run python script
+        command: ["/bin/bash"] # Entry point for the container
+        args: ["-c", "python3 -u KubernetesMLExample/resnet_benchmark/resnet_benchmark.py"] # sh commands to clone and run python script
