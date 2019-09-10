@@ -15,9 +15,9 @@ spec:
         value: "true"
         effect: "NoSchedule"
       volumes: # Example volume mounting for scratch07
-      - name: scratch07 # name for the volume to be reference in container volumeMounts
+      - name: mnt # name for the volume to be reference in container volumeMounts
         hostPath:
-          path: /mnt/scratch07 # Directory on the host machine to be mounted
+          path: /mnt # Directory on the host machine to be mounted
       affinity: # Affinity to select certain nodes with 11GB, 12GB, or 24GB memory
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution: # Require nodes to have this label
@@ -36,8 +36,8 @@ spec:
           limits:
             nvidia.com/gpu: 1 # requesting 1 GPUs
         volumeMounts: # Container reference to volumes define above
-        - name: scratch07 # Name of the volume define above
-          mountPath: /mnt/scratch07 # Location of where to mount it in the container
+        - name: mnt # Name of the volume define above
+          mountPath: /mnt # Location of where to mount it in the container
         env: # This section refers to secrets created under the user namespace and set them as enviorment variables
         - name: DJ_HOST
           valueFrom:
