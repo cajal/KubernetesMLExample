@@ -14,19 +14,6 @@ spec:
         operator: "Equal"
         value: "true"
         effect: "NoSchedule"
-      - key: "synicix-reserve"
-        operator: "Equal"
-        value: "true"
-        effect: "NoSchedule"
-      affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-              - at-gpu3
       volumes: # Example volume mounting for scratch07
       - name: mnt # name for the volume to be reference in container volumeMounts
         hostPath:
