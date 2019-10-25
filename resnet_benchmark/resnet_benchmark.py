@@ -59,7 +59,7 @@ for epoch in range(num_of_epochs):
     epoch_loss_history = []
     
     for data in train_loader:
-        inputs, targets = data;
+        inputs, targets = data
         
         # Send to device
         inputs = inputs.half().to(device) # Call .half() (NEW CHANGE)
